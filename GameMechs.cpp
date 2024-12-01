@@ -76,24 +76,24 @@ void GameMechs::clearInput()
 // More methods should be added here
 void GameMechs::generateFood(objPos blockOff)
 {
-    int validPos = 1;
-    int validChar = 1;
-    int candidateX = rand() % boardSizeX;
-    int candidateY = rand() % boardSizeY;
-    char candidateSymbol = '*';
+    // int validPos = 1;
+    // int validChar = 1;
+    // int candidateX = rand() % boardSizeX;
+    // int candidateY = rand() % boardSizeY;
+    // char candidateSymbol = '*';
     
-    foodPos.setObjPos(candidateX, candidateY, candidateSymbol); 
-    objPos playerPos = blockOff.getObjPos();
+    // foodPos.setObjPos(candidateX, candidateY, candidateSymbol); 
+    // objPos playerPos = blockOff.getObjPos();
     
-    if foodPos
+    // if foodPos
     
-    validPos = 0;
-    }
+    // validPos = 0;
+    // }
     
     
 }
 
-objPos GameMechs::getFoodPos()
+objPos const GameMechs::getFoodPos()
 {
-    return foodPos;
+    // return foodPos;
 }
