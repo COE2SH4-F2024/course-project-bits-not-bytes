@@ -108,17 +108,20 @@ void Player::movePlayer()
     }
     // [TODO] : Heed the border wraparound!!!
 
-    if (playerPos.pos -> x == 34){
+    int xlength = mainGameMechsRef -> getBoardSizeX();
+    int ylength = mainGameMechsRef -> getBoardSizeY();
+
+    if (playerPos.pos -> x == xlength){
         playerPos.pos -> x =1;
     }
     else if (playerPos.pos -> x == 0){
-        playerPos.pos -> x = 33;
+        playerPos.pos -> x = xlength-1;
     }
 
     if (playerPos.pos -> y == 0){
-        playerPos.pos -> y = 13;
+        playerPos.pos -> y = ylength-1;
     }
-    else if (playerPos.pos -> y == 14){
+    else if (playerPos.pos -> y == ylength){
         playerPos.pos -> y = 1;
     }
 
