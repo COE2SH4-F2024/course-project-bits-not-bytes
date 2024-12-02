@@ -99,10 +99,10 @@ void Player::movePlayer()
         (playerPos.pos -> x)--;
     }
     else if (myDir == UP){
-        (playerPos.pos -> y)++;
+        (playerPos.pos -> y)--;
     }
     else if (myDir == DOWN){
-        (playerPos.pos -> y)--;
+        (playerPos.pos -> y)++;
     }
     // [TODO] : Heed the border wraparound!!!
 
