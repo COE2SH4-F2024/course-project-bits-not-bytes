@@ -81,7 +81,14 @@ void Player::updatePlayerDir()
     }
 
 
-    // [TODO] : Next, you need to update the player location by 1 unit 
+}
+
+void Player::movePlayer()
+{
+    // PPA3 Finite State Machine logic
+
+
+     // [TODO] : Next, you need to update the player location by 1 unit 
     //          in the direction stored in the program
 
 
@@ -113,12 +120,6 @@ void Player::updatePlayerDir()
         playerPos.pos -> y = 1;
     }
 
-
-}
-
-void Player::movePlayer()
-{
-    // PPA3 Finite State Machine logic
 }
 
 // More methods to be added
