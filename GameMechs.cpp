@@ -18,7 +18,7 @@ GameMechs::GameMechs(int boardX, int boardY)
 // do you need a destructor?
 GameMechs::~GameMechs()
 {
-    
+    //nope cuz global variable
 }
 
 bool GameMechs::getExitFlagStatus() const

@@ -108,17 +108,17 @@ void Player::movePlayer()
     }
     // [TODO] : Heed the border wraparound!!!
 
-    if (playerPos.pos -> x == 19){
+    if (playerPos.pos -> x == 34){
         playerPos.pos -> x =1;
     }
     else if (playerPos.pos -> x == 0){
-        playerPos.pos -> x = 18;
+        playerPos.pos -> x = 33;
     }
 
     if (playerPos.pos -> y == 0){
-        playerPos.pos -> y = 8;
+        playerPos.pos -> y = 13;
     }
-    else if (playerPos.pos -> y == 9){
+    else if (playerPos.pos -> y == 14){
         playerPos.pos -> y = 1;
     }
 

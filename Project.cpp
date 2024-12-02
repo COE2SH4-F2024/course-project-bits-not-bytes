@@ -47,7 +47,7 @@ void Initialize(void)
     MacUILib_init();
     MacUILib_clearScreen();
 
-    myGameMech = new GameMechs(20,10);
+    myGameMech = new GameMechs(35,15);
     myPlayer = new Player(myGameMech);
     
     exitFlag = false;
@@ -91,7 +91,7 @@ void DrawScreen(void)
                 continue;
             }
 
-            if (y==0 || y==9 || x ==0 || x ==19){
+            if (y==0 || y==ylength-1 || x ==0 || x ==xlength-1){
                 MacUILib_printf("#");
                 continue;
             }
