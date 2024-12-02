@@ -74,6 +74,8 @@ void DrawScreen(void)
     MacUILib_clearScreen();    
 
     objPos playerPos = myPlayer -> getPlayerPos();
+    myGameMech -> generateFood(playerPos);
+    objPos foodPos = myGameMech -> getFoodPos();
 
     int y;
     int x;
@@ -82,6 +84,7 @@ void DrawScreen(void)
     int ylength = myGameMech->getBoardSizeY();
     int xlength = myGameMech->getBoardSizeX();
 
+    // MacUILib_printf("%c,%d,%d", foodPos.symbol, foodPos.pos->x, foodPos.pos->y);
     // MacUILib_printf("%c, %d, %d",playerPos.symbol, playerPos.pos->x,playerPos.pos->y);
     for (y=0; y<ylength;y++){
 
@@ -95,6 +98,12 @@ void DrawScreen(void)
                 MacUILib_printf("#");
                 continue;
             }
+
+            if(x== foodPos.pos->x && y==foodPos.pos->y){
+                MacUILib_printf("%c", foodPos.symbol);
+                continue;
+            }
+
             MacUILib_printf(" ");
             int boolcon=0;
             int i,j;
