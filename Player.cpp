@@ -111,17 +111,17 @@ void Player::movePlayer()
     int xlength = mainGameMechsRef -> getBoardSizeX();
     int ylength = mainGameMechsRef -> getBoardSizeY();
 
-    if (playerPos.pos -> x == xlength){
+    if (playerPos.pos -> x == xlength-1){
         playerPos.pos -> x =1;
     }
     else if (playerPos.pos -> x == 0){
-        playerPos.pos -> x = xlength-1;
+        playerPos.pos -> x = xlength-2;
     }
 
     if (playerPos.pos -> y == 0){
-        playerPos.pos -> y = ylength-1;
+        playerPos.pos -> y = ylength-2;
     }
-    else if (playerPos.pos -> y == ylength){
+    else if (playerPos.pos -> y == ylength-1){
         playerPos.pos -> y = 1;
     }
 
