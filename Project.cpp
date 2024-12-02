@@ -70,9 +70,11 @@ void DrawScreen(void)
 
     int y;
     int x;
+
     MacUILib_clearScreen();
 
     for (y=0; y<10;y++){
+
         for (x=0; x<20;x++){
             if (x == playerPos.pos->x && y== playerPos.pos->y){
                 MacUILib_printf("%c",playerPos.getSymbol());
@@ -83,8 +85,8 @@ void DrawScreen(void)
                 MacUILib_printf("#");
                 continue;
             }
-
-            int boolcon=1;
+            MacUILib_printf(" ");
+            int boolcon=0;
             int i,j;
 
             // for(i=0;i<5;i++){
@@ -107,15 +109,15 @@ void DrawScreen(void)
             //     }
             // }
 
-            if (boolcon){
-                MacUILib_printf(" ");
+            // if (boolcon){
+            //     MacUILib_printf(" ");
+
+            // }
+
 
             }
-
-
-            }
-        }
         MacUILib_printf("\n");
+        }
 }
 
 void LoopDelay(void)
