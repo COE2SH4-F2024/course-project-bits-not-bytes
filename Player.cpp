@@ -1,15 +1,29 @@
 #include "Player.h"
-
+#include "objPosArrayList.h"
+#include "objPos.h"
 
 Player::Player(GameMechs* thisGMRef)
 {
     mainGameMechsRef = thisGMRef;
+    objPos playerPos = objPos();
+    //add the cordinates
+
+    int xlength = mainGameMechsRef->getBoardSizeX();
+    int ylength = mainGameMechsRef ->getBoardSizeY();
+
+    playerPos.setObjPos(xlength/2,ylength/2,'@');
+
+    objPos playerPos02 = objPos();
+    playerPos02.setObjPos(xlength/2,ylength/2-1,'@');
+
+    
+    playerPosList = new objPosArrayList();
+    playerPosList -> insertHead(playerPos);
+    playerPosList -> insertTail(playerPos02);
+
     myDir = STOP;
 
     // more actions to be included
-    int xlength = mainGameMechsRef->getBoardSizeX();
-    int ylength = mainGameMechsRef ->getBoardSizeY();
-    playerPos.setObjPos(xlength/2,ylength/2,'@');
 }
 
 
@@ -18,10 +32,10 @@ Player::~Player()
     // delete any heap members here
 }
 
-objPos Player::getPlayerPos() const
+objPosArrayList* Player::getPlayerPos()  const
 {
     // return the reference to the playerPos arrray list
-    return playerPos;
+    return playerPosList;
 }
 
 void Player::updatePlayerDir()
@@ -93,38 +107,57 @@ void Player::movePlayer()
      // [TODO] : Next, you need to update the player location by 1 unit 
     //          in the direction stored in the program
 
+    objPos newhead = playerPosList -> getHeadElement();
 
     if (myDir == RIGHT){
-        (playerPos.pos -> x)++;
+        (newhead.pos -> x)++;
     }
     else if (myDir == LEFT){
-        (playerPos.pos -> x)--;
+        (newhead.pos -> x)--;
     }
     else if (myDir == UP){
-        (playerPos.pos -> y)--;
+        (newhead.pos -> y)--;
     }
     else if (myDir == DOWN){
-        (playerPos.pos -> y)++;
+        (newhead.pos -> y)++;
     }
     // [TODO] : Heed the border wraparound!!!
 
     int xlength = mainGameMechsRef -> getBoardSizeX();
     int ylength = mainGameMechsRef -> getBoardSizeY();
 
-    if (playerPos.pos -> x == xlength-1){
-        playerPos.pos -> x = 1;
+    if (newhead.pos -> x == xlength-1){
+        newhead.pos -> x = 1;
     }
-    else if (playerPos.pos -> x == 0){
-        playerPos.pos -> x = xlength-2;
+    else if (newhead.pos -> x == 0){
+        newhead.pos -> x = xlength-2;
     }
 
-    if (playerPos.pos -> y == 0){
-        playerPos.pos -> y = ylength-2;
+    if (newhead.pos -> y == 0){
+        newhead.pos -> y = ylength-2;
     }
-    else if (playerPos.pos -> y == ylength-1){
-        playerPos.pos -> y = 1;
+    else if (newhead.pos -> y == ylength-1){
+        newhead.pos -> y = 1;
     }
+
+
+    playerPosList -> insertHead(newhead);
+    playerPosList -> removeTail();
 
 }
 
 // More methods to be added
+
+
+int Player::doesCordExist(int xin, int yin) const{
+
+    for (int i=0; i<playerPosList->getSize();i++){
+        objPos thisobj = playerPosList->getElement(i);
+        if (thisobj.pos->x == xin && thisobj.pos->y == yin){
+            return i;
+        }
+    }
+
+    return -1;
+
+}

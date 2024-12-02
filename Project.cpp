@@ -4,6 +4,7 @@
 
 #include "Player.h"
 #include "GameMechs.h"
+#include "objPosArrayList.h"
 
 using namespace std;
 
@@ -73,9 +74,9 @@ void DrawScreen(void)
 {
     MacUILib_clearScreen();    
 
-    objPos playerPos = myPlayer -> getPlayerPos();
-    myGameMech -> generateFood(playerPos);
-    objPos foodPos = myGameMech -> getFoodPos();
+    objPosArrayList* playerPos = myPlayer -> getPlayerPos();
+    // myGameMech -> generateFood(playerPos);
+    // objPos foodPos = myGameMech -> getFoodPos();
 
     int y;
     int x;
@@ -89,8 +90,9 @@ void DrawScreen(void)
     for (y=0; y<ylength;y++){
 
         for (x=0; x<xlength;x++){
-            if (x == playerPos.pos->x && y== playerPos.pos->y){
-                MacUILib_printf("%c",playerPos.symbol);
+            if (myPlayer -> doesCordExist(x,y) != -1){
+                int arrayindex = myPlayer -> doesCordExist(x,y);
+                MacUILib_printf("%c",playerPos->getElement(arrayindex).symbol);
                 continue;
             }
 
@@ -99,10 +101,10 @@ void DrawScreen(void)
                 continue;
             }
 
-            if(x== foodPos.pos->x && y==foodPos.pos->y){
-                MacUILib_printf("%c", foodPos.symbol);
-                continue;
-            }
+            // if(x== foodPos.pos->x && y==foodPos.pos->y){
+            //     MacUILib_printf("%c", foodPos.symbol);
+            //     continue;
+            // }
 
             MacUILib_printf(" ");
             int boolcon=0;
