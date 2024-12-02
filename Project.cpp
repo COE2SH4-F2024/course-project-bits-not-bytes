@@ -82,12 +82,12 @@ void DrawScreen(void)
     int ylength = myGameMech->getBoardSizeY();
     int xlength = myGameMech->getBoardSizeX();
 
-
+    // MacUILib_printf("%c, %d, %d",playerPos.symbol, playerPos.pos->x,playerPos.pos->y);
     for (y=0; y<ylength;y++){
 
         for (x=0; x<xlength;x++){
             if (x == playerPos.pos->x && y== playerPos.pos->y){
-                MacUILib_printf("%c",playerPos.getSymbol());
+                MacUILib_printf("%c",playerPos.symbol);
                 continue;
             }
 
@@ -141,6 +141,7 @@ void CleanUp(void)
     MacUILib_clearScreen();    
 
     delete myPlayer;
+    delete myGameMech;
 
     MacUILib_uninit();
 }
