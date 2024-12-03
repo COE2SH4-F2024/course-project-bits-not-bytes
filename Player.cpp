@@ -43,9 +43,6 @@ void Player::updatePlayerDir()
     {
         switch(input)
         {                      
-            case 27:  // exit
-                mainGameMechsRef->setExitTrue();
-                break;
 
             case 'w':
                 if(myDir == DOWN){

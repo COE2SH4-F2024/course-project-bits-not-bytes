@@ -95,7 +95,7 @@ void GameMechs::generateFood(objPos blockOff)
         int candidateY = rand() % boardSizeY;
         
 
-        if(food.pos->x != playerPos.pos->x && food.pos->y != playerPos.pos->y)
+        if(candidateX != playerPos.pos->x && candidateX != playerPos.pos->y)
         {
             validPos = 1;
             break;

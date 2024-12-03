@@ -71,7 +71,7 @@ void RunLogic(void)
     myPlayer->movePlayer();
 
 }
-
+int counter=0;
 void DrawScreen(void)
 {
     MacUILib_clearScreen();    
@@ -86,11 +86,14 @@ void DrawScreen(void)
     int y;
     int x;
 
-    MacUILib_clearScreen();
+    MacUILib_printf("%d and %d, counter %d, and exit: %d\n", foodPos.pos->x, foodPos.pos->y,counter,myGameMech -> getExitFlagStatus());
+    counter++;
     int ylength = myGameMech->getBoardSizeY();
     int xlength = myGameMech->getBoardSizeX();
+
     
-    // MacUILib_printf("%c,%d,%d", foodPos.symbol, foodPos.pos->x, foodPos.pos->y);
+    
+
     for (y=0; y<ylength;y++){
 
         for (x=0; x<xlength;x++){
@@ -112,7 +115,7 @@ void DrawScreen(void)
 
             if(playerPos->getHeadElement().pos->x == foodPos.pos->x && playerPos->getHeadElement().pos->y == foodPos.pos->y){
                 foodGenerated = false;
-                continue;
+
             }
             MacUILib_printf(" ");
             int boolcon=0;
@@ -147,6 +150,8 @@ void DrawScreen(void)
             }
         MacUILib_printf("\n");
         }
+
+        MacUILib_printf("%d and %d, counter %d, and exit: %d\n", foodPos.pos->x, foodPos.pos->y,counter,myGameMech -> getExitFlagStatus());
 }
 
 void LoopDelay(void)
