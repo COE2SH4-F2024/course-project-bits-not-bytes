@@ -39,7 +39,7 @@ void Player::updatePlayerDir()
     char input = mainGameMechsRef->getInput();
 
 
-     if(input != 0)  // if not null character
+    if(input != 0)  // if not null character
     {
         switch(input)
         {                      
