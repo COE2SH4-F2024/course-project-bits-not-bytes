@@ -78,8 +78,8 @@ void DrawScreen(void)
 
     objPosArrayList* playerPos = myPlayer -> getPlayerPos();
     if(foodGenerated == false){
-        // playerPos->insertHead();
         myGameMech -> generateFood(playerPos->getHeadElement());
+        myPlayer -> longertail();
         foodGenerated = true;
     }
     objPos foodPos = myGameMech -> getFoodPos();
@@ -116,37 +116,12 @@ void DrawScreen(void)
 
             if(playerPos->getHeadElement().pos->x == foodPos.pos->x && playerPos->getHeadElement().pos->y == foodPos.pos->y){
                 foodGenerated = false;
-
             }
             MacUILib_printf(" ");
             int boolcon=0;
             int i,j;
 
-            // for(i=0;i<5;i++){
-            //     if (itemAll[i].x==x&&itemAll[i].y==y){
-            //         MacUILib_printf("%c",itemAll[i].symbol);
-            //         boolcon=0;
-            //         break;
-            //     }
-            //     if (itemAll[i].x==objectPosition.x && itemAll[i].y==objectPosition.y){
-            //         for (j=0;j<my_strlen(endingString);j++){
-            //             if(itemAll[i].symbol == endingString[j]){
-            //                 stringUnknown[j] = endingString[j];
-            //             }
-            //         }
-
-            //         // GenerateItems(itemAll, 5, &objectPosition, 19, 9, endingString);
-            //         // if (my_strcmp(stringUnknown,endingString) == 1){
-            //         //     winDone = 1;
-            //         // }
-            //     }
-            // }
-
-            // if (boolcon){
-            //     MacUILib_printf(" ");
-
-            // }
-
+           
 
             }
         MacUILib_printf("\n");

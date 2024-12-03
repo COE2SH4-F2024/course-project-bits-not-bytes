@@ -29,6 +29,8 @@ class Player
 
         int doesCordExist(int x, int y) const;
 
+        void longertail();
+
 
     private:
         enum Dir myDir;

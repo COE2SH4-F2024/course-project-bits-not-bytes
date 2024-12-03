@@ -153,3 +153,16 @@ int Player::doesCordExist(int xin, int yin) const{
     return -1;
 
 }
+
+void Player::longertail(){
+    objPos posA = playerPosList ->getTailElement();
+    objPos posB = playerPosList ->getSecondTailElement();
+
+    int x_tail = 2*(posA.pos->x) - (posB.pos->x);
+    int y_tail = 2*(posA.pos->y) - (posB.pos->y);
+
+    objPos newTail = objPos(x_tail,y_tail,'@');
+    
+    playerPosList -> insertTail(newTail);
+
+}

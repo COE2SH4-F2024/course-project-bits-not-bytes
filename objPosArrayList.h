@@ -24,6 +24,7 @@ class objPosArrayList
         
         objPos getHeadElement() const;
         objPos getTailElement() const;
+        objPos getSecondTailElement() const;
         objPos getElement(int index) const;
 };
 

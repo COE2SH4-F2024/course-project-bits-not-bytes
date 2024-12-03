@@ -60,6 +60,14 @@ objPos objPosArrayList::getTailElement() const
     return aList[listSize-1];
 }
 
+objPos objPosArrayList::getSecondTailElement() const
+{
+    if(listSize == 1){
+        return aList[listSize-1];
+    }
+    return aList[listSize-2];
+}
+
 objPos objPosArrayList::getElement(int index) const
 {
     return aList[index];
