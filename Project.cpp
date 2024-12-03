@@ -53,7 +53,11 @@ void Initialize(void)
     myPlayer = new Player(myGameMech);
     
     exitFlag = false;
-    foodGenerated = false;
+    foodGenerated = true;
+    objPosArrayList* playerPos = myPlayer -> getPlayerPos();
+    myGameMech -> generateFood(playerPos);
+
+
 }
 
 void GetInput(void)
