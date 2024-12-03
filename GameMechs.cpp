@@ -87,7 +87,6 @@ void GameMechs::generateFood(objPos blockOff)
     int candidateX = rand() % boardSizeX;
     int candidateY = rand() % boardSizeY;
     
-    food.setObjPos(candidateX, candidateY, '*'); 
     objPos playerPos = blockOff.getObjPos();
     
     while(validPos != 1)
@@ -95,17 +94,15 @@ void GameMechs::generateFood(objPos blockOff)
         int candidateX = rand() % boardSizeX;
         int candidateY = rand() % boardSizeY;
         
-        food.setObjPos(candidateX, candidateY, '*'); 
-        objPos playerPos = blockOff.getObjPos();
 
         if(food.pos->x != playerPos.pos->x && food.pos->y != playerPos.pos->y)
         {
-            validPos == 1;
+            validPos = 1;
             break;
         }
-
-        validPos = 0;
     }  
+
+    food.setObjPos(candidateX, candidateY, '*'); 
 }
 
 objPos const GameMechs::getFoodPos()

@@ -12,14 +12,9 @@ Player::Player(GameMechs* thisGMRef)
     int ylength = mainGameMechsRef ->getBoardSizeY();
 
     playerPos.setObjPos(xlength/2,ylength/2,'@');
-
-    objPos playerPos02 = objPos();
-    playerPos02.setObjPos(xlength/2,ylength/2-1,'@');
-
     
     playerPosList = new objPosArrayList();
     playerPosList -> insertHead(playerPos);
-    playerPosList -> insertTail(playerPos02);
 
     myDir = STOP;
 
