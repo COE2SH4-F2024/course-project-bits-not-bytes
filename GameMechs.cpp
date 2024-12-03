@@ -3,6 +3,10 @@
 
 GameMechs::GameMechs()
 {
+
+
+    exitFlag = false;
+    loseFlag = false;
     boardSizeX = 30;
     boardSizeY = 15;
     
@@ -10,6 +14,9 @@ GameMechs::GameMechs()
 
 GameMechs::GameMechs(int boardX, int boardY)
 {
+
+    exitFlag = false;
+    loseFlag = false;
     boardSizeX = boardX;
     boardSizeY = boardY;
     

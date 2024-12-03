@@ -1,5 +1,6 @@
 #include "objPosArrayList.h"
 
+
 // Check lecture contents on general purpose array list construction, 
 // and modify it to support objPos array list construction.
 
@@ -13,6 +14,20 @@ objPosArrayList::objPosArrayList()
 objPosArrayList::~objPosArrayList()
 {
     delete[] aList;
+}
+
+bool objPosArrayList::doesHeadExist(objPos objectIn){
+
+
+
+    for (int i=0; i<listSize; i++){
+        if ((objectIn.pos ->x == aList[i].pos->x )&&( objectIn.pos ->y == aList[i].pos->y)){
+            return true;
+        }
+    }
+
+    return false;
+
 }
 
 int objPosArrayList::getSize() const

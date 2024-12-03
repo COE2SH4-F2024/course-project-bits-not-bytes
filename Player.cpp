@@ -133,6 +133,14 @@ void Player::movePlayer()
     }
 
 
+    if(myDir != STOP && playerPosList->doesHeadExist(newhead) ){
+        
+        mainGameMechsRef->setExitTrue();
+        mainGameMechsRef->setLoseFlag();
+        return;
+    }
+
+
     playerPosList -> insertHead(newhead);
     playerPosList -> removeTail();
 

@@ -31,7 +31,7 @@ int main(void)
 
     Initialize();
 
-    while(exitFlag == false)  
+    while(myGameMech -> getLoseFlagStatus() == false && myGameMech -> getExitFlagStatus() == false)  
     {
         GetInput();
         RunLogic();
@@ -91,7 +91,7 @@ void DrawScreen(void)
     int y;
     int x;
 
-    MacUILib_printf("%d and %d, counter %d, and exit: %d\n", foodPos.pos->x, foodPos.pos->y,counter,myGameMech -> getExitFlagStatus());
+    MacUILib_printf("%d and %d, counter %d, and exit: %d and %d\n", foodPos.pos->x, foodPos.pos->y,counter,myGameMech -> getExitFlagStatus(),myGameMech ->getLoseFlagStatus());
     counter++;
     int ylength = myGameMech->getBoardSizeY();
     int xlength = myGameMech->getBoardSizeX();
