@@ -78,7 +78,7 @@ void DrawScreen(void)
 
     objPosArrayList* playerPos = myPlayer -> getPlayerPos();
     if(foodGenerated == false){
-        myGameMech -> generateFood(playerPos->getHeadElement());
+        myGameMech -> generateFood(playerPos);
         myPlayer -> longertail();
         foodGenerated = true;
     }

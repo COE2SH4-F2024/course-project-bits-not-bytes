@@ -81,25 +81,36 @@ void GameMechs::clearInput()
 }
 
 // More methods should be added here
-void GameMechs::generateFood(objPos blockOff)
+void GameMechs::generateFood(objPosArrayList* blockOff)
 {
     int validPos = 0;
-    int candidateX = rand() % boardSizeX;
-    int candidateY = rand() % boardSizeY;
+    int candidateX;
+    int candidateY;
     
-    objPos playerPos = blockOff.getObjPos();
+    int snakeSize = blockOff->getSize();
     
     while(validPos != 1)
     {
-        int candidateX = rand() % boardSizeX;
-        int candidateY = rand() % boardSizeY;
-        
+        candidateX = rand() % boardSizeX;
+        candidateY = rand() % boardSizeY;
 
-        if(candidateX != playerPos.pos->x && candidateX != playerPos.pos->y)
+        validPos = 1;
+
+        for(int i=0; i<snakeSize; i++)
         {
-            validPos = 1;
-            break;
+            objPos bodyElement = blockOff->getElement(i);
+            if(candidateX == bodyElement.pos->x && candidateY == bodyElement.pos->y)
+            {
+                validPos = 0;
+                break;
+            }
         }
+
+            if (candidateX == 0 || candidateX == boardSizeX - 1 || candidateY == 0 || candidateY == boardSizeY - 1) 
+            {
+                validPos = 0;
+            }
+
     }  
 
     food.setObjPos(candidateX, candidateY, '*'); 
